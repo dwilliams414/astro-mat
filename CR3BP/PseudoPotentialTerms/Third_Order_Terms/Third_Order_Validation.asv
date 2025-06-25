@@ -1,0 +1,24 @@
+%% Validation File For Third Order Partials
+clc; clear all; close all;
+load("em_constants.mat");
+pos = rand(3,1);
+
+% Validate Numeric Differencing against what we know works
+uxxx_an
+
+
+
+function numeric = fd(pos, func, pos_index, mu)
+    x0_plus = pos;
+    x0_minus = pos;
+
+    h = sqrt(eps);
+
+    x0_plus(pos_index) = pos(pos_index)+h;
+    x0_minus(pos_index) = pos(pos_index)-h;
+
+    fplus = func(x0_plus, mu);
+    fminus = func(x0_minus, mu);
+
+    numeric = (fplus-fminus)/(2*h);
+end
