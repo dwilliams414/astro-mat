@@ -1,0 +1,5 @@
+**/*.bsp
+**/*.tls
+**/*.tls.pc
+**/*.tpc
+extern/
