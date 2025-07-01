@@ -1,4 +1,4 @@
-classdef EphemForceModel
+classdef EphemForceModel < handle
     %EphemForceModel:  Class for describing parameters associated with
     %ephemeris EOM's and propagation.  This is predominantly geared toward
     %uniform time flow in the inertial frame, and modifications will be
