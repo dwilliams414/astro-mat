@@ -1,5 +1,5 @@
 % Installation/Initialization Script for asto-mat
-if ~isfolder("./extern/mice")
+if isfolder("./extern/mice")
     rmdir ./extern/mice s
 end
 
