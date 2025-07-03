@@ -28,23 +28,14 @@ end
 if ispc()
     % Base MICE
     unzip(mice_url, "./extern/");
-    else
-        command1 = "wget " + mice_url;
-        system(command1);
-        
-        command2 = "tar -xf mice.tar.Z -C extern";
-        system(command2);
-        
-        delete("mice.tar.Z");
-    if install_boost
-        command1 = "wget " + boost_url;
-        system(command1);
+else
+    command1 = "wget " + mice_url;
+    system(command1);
     
-        command2 = "tar -xf boost_1_87_0.tar.gz";
-        system(command2);
+    command2 = "tar -xf mice.tar.Z -C extern";
+    system(command2);
     
-        delete("boost_1_87_0.tar.gz");
-    end
+    delete("mice.tar.Z");
 end
 fprintf("Successfully installed MICE!\n");
 
