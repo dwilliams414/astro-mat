@@ -32,6 +32,9 @@ else
     command1 = "wget " + mice_url;
     system(command1);
     
+    if ~isfolder('extern')
+        mkdir('extern');
+    end
     command2 = "tar -xf mice.tar.Z -C extern";
     system(command2);
     
