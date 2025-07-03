@@ -55,7 +55,11 @@ classdef EphemForceModel < handle
             end
 
             % Calculate Mass Ratio/GMstar
-            obj.GMstar = (obj.GMdim(1)+obj.GMdim(2));
+            if length(obj.spkID) > 1
+                obj.GMstar = (obj.GMdim(1)+obj.GMdim(2));
+            else
+                obj.GMstar = obj.GMdim(1);
+            end
 
             % Determine Initial Epoch
             if isinf(opts.et0)
