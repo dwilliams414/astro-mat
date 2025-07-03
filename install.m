@@ -57,6 +57,6 @@ websave("data/gm_de440.tpc", "https://naif.jpl.nasa.gov/pub" + ...
     "/naif/generic_kernels/pck/gm_de440.tpc");
 
 %% Path Configuration
-addpath(genpath("./"));
+addpath(genpath(['.', filesep]));
 
 savepath([userpath,filesep,'pathdef.m']);
