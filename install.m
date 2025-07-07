@@ -61,5 +61,3 @@ websave("data/gm_de440.tpc", "https://naif.jpl.nasa.gov/pub" + ...
 
 %% Path Configuration
 addpath(genpath("./"));
-
-savepath([userpath,filesep,'pathdef.m']);
