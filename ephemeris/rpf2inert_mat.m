@@ -47,8 +47,9 @@ end
         C = [xhat yhat zhat];
 
         % Angular Velocity
-        theta_dot = norm(h)/l^2;
-        omega_vec = [0; 0; theta_dot];
+        %theta_dot = norm(h)/l^2;
+        %omega_vec = [0; 0; theta_dot]; % angular velocity in rpf meas no.
+        omega_vec = h/l^2; % express angular velocity in inertial meas no.
 
         % Determine M
         if opts.uniform_time
@@ -56,8 +57,12 @@ end
         else
             dtdT = 1/sqrt(l^3/model.GMstar);
         end
+        % M(:, :, k) = [l*C zeros(3); 
+        %     lprime*C+l*C*cross_matrix(omega_vec) l*C*dtdT];
+
+        % Express DCM derivative using inertial meas no.
         M(:, :, k) = [l*C zeros(3); 
-            lprime*C+l*C*cross_matrix(omega_vec) l*C*dtdT];
+            lprime*C+l*cross_matrix(omega_vec)*C l*C*dtdT];
 
         % Determine Barycenter Position And Velocity
         GM2 = model.GMdim(2);
