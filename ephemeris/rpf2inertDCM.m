@@ -11,7 +11,7 @@ function nCr = rpf2inertDCM(true_epoch, model)
    end
     % Determine characteristic length and derivative wrt dimensional
     % time
-    x_12 = cspice_spkezr(char(model.spkID(2)), true_epoch(k), ...
+    x_12 = cspice_spkezr(char(model.spkID(2)), true_epoch, ...
         'J2000', 'None', char(model.spkID(1)));
     r12 = x_12(1:3);
     v12 = x_12(4:end);
